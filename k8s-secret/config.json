@@ -1,0 +1,16 @@
+{
+  "auths": {
+    "docker-s.nexus.s3t.co": {
+      "auth": "xxxx"
+    },
+	"docker-r.nexus.s3t.co": {
+      "auth": "xxxx"
+    },
+	"docker-p.nexus.s3t.co": {
+      "auth": "xxxx"
+    },
+	"docker-g.nexus.s3t.co": {
+      "auth": "xxxx"
+    }
+  }
+}
