@@ -19,9 +19,8 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 # Install ChromeDriver
 RUN wget -q https://storage.googleapis.com/chrome-for-testing-public/126.0.6478.126/linux64/chromedriver-linux64.zip -O /tmp/chromedriver.zip && \
     unzip /tmp/chromedriver.zip -d /tmp && \
-	cp -r /tmp/chromedriver-linux64/ /usr/local/bin/ && \
-	chmod +x /usr/local/bin/chromedriver && \
-    rm -rf /tmp/chromedriver.zip /tmp/chromedriver-linux64/*
+	mv /tmp/chromedriver-linux64/chromedriver /usr/local/bin/ && \
+    rm -rf /tmp/chromedriver.zip /tmp/chromedriver-linux64
 
 # Create a virtual environment and install Selenium and other Python packages
 RUN python3 -m venv /opt/venv && \
