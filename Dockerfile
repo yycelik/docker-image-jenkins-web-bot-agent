@@ -16,8 +16,8 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install ChromeDriver
-RUN wget -q https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip -O /tmp/chromedriver.zip && \
+# Install ChromeDriver (compatible with Chrome version 126)
+RUN wget -q https://chromedriver.storage.googleapis.com/126.0.6478.126/chromedriver_linux64.zip -O /tmp/chromedriver.zip && \
     unzip /tmp/chromedriver.zip -d /usr/local/bin/ && \
     rm /tmp/chromedriver.zip
 
@@ -25,6 +25,7 @@ RUN wget -q https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriv
 RUN python3 -m venv /opt/venv && \
     /opt/venv/bin/pip install --upgrade pip && \
     /opt/venv/bin/pip install selenium imaplib2 beautifulsoup4 requests jenkinsapi && \
+	/opt/venv/bin/pip install --upgrade chromedriver-autoinstaller && \
     rm -rf /root/.cache
 
 # Display the versions of Chrome and ChromeDriver
